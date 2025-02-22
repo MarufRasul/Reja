@@ -1,9 +1,13 @@
 console.log('Web Serverni boshlash');
+
 const express = require('express');
 const app = express();
 const http = require('http');
 const fs = require('fs');
-let user;
+
+let user = {}; // Если файл не загрузится, переменная user не будет пустой
+
+// Загружаем user.json
 fs.readFile('database/user.json', 'utf8', (err, data) => {
   if (err) {
     console.log('ERROR:', err);
@@ -12,34 +16,29 @@ fs.readFile('database/user.json', 'utf8', (err, data) => {
   }
 });
 
-// 1: Kirish code
-
+// Подключаем статику (CSS, изображения и т. д.)
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 2: Session code
-// 3: Views code
-
+// Устанавливаем движок шаблонов EJS
 app.set('views', 'views');
 app.set('view engine', 'ejs');
 
-// 4 Routing code
-app.post('/create-item', (req, res) => {
-  console.log(req.body);
-  res.json({ test: 'success' });
-});
-
+// Проверяем, работает ли сервер
 app.get('/author', (req, res) => {
+  console.log('Rendering author page');
   res.render('author', { user: user });
 });
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
+  console.log('Rendering harid page');
   res.render('harid');
 });
 
+// Запуск сервера
 const server = http.createServer(app);
-let PORT = 3000;
+const PORT = 3000;
 server.listen(PORT, function () {
   console.log(`The server is running successfully on port: ${PORT}`);
 });
