@@ -1,5 +1,4 @@
 /*console.log('Jack Ma maslahatlari');
-
 const list = [
   'yahshi talaba boling', //0-20
 
@@ -37,10 +36,9 @@ maslahatBering(65, (err, data) => {
 console.log('passe here 1');*/
 
 // async
+/*console.log('Jack Ma maslahatlari');*/
 
-/*console.log('Jack Ma maslahatlari');
-
-const list = [
+/*const list = [
   'yahshi talaba boling', // 0-20
   'togri boshliq tanlang va koproq hato qiling', // 20-30
   'uzingizga ishlashingizni boshlang', // 30-40
@@ -75,7 +73,7 @@ async function maslahatBering(a) {
   }
 }
 
-// then/catch
+// call via then/catch
 console.log('passed here 0');
 
 maslahatBering(65)
@@ -87,8 +85,8 @@ maslahatBering(65)
   });
 
 console.log('passed here 1');*/
-// Массив советов
-const list = [
+
+/*const list = [
   'yahshi talaba boling', // 0-20
   'togri boshliq tanlang va koproq hato qiling', // 20-30
   'uzingizga ishlashingizni boshlang', // 30-40
@@ -97,7 +95,7 @@ const list = [
   'endi dam oling, foydasi yoq endi', // >60
 ];
 
-// Асинхронная функция
+
 async function maslahatBering(a) {
   if (typeof a !== 'number') {
     throw new Error('insert a number');
@@ -121,7 +119,7 @@ async function maslahatBering(a) {
     });
   }
 }
-
+// call via asyn/await
 async function run() {
   let javob = await maslahatBering(20);
   console.log(javob);
@@ -131,4 +129,4 @@ async function run() {
   console.log(javob);
 }
 
-run();
+run();*/
