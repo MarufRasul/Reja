@@ -128,5 +128,32 @@ async function run() {
   javob = await maslahatBering(41);
   console.log(javob);
 }
-
 run();*/
+
+//TASK-A
+function countLetter(letter, word) {
+  if (
+    typeof letter !== 'string' ||
+    typeof word !== 'string' ||
+    letter.length !== 1
+  ) {
+    throw new Error('Биринчи параметр битта харф, иккинчиси суз булишкирек');
+  }
+
+  let count = 0;
+
+  for (let char of word) {
+    if (char === letter) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Тест
+console.log(countLetter('g', ' programming')); // 2
+console.log(countLetter('m', 'programming')); // 2
+console.log(countLetter('r', 'programming')); // 2
+console.log(countLetter('p', 'programming')); // 1
+console.log(countLetter('z', 'programming')); // 0
