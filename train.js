@@ -131,7 +131,7 @@ async function run() {
 run();*/
 
 //TASK-A
-function countLetter(letter, word) {
+/*function countLetter(letter, word) {
   if (
     typeof letter !== 'string' ||
     typeof word !== 'string' ||
@@ -156,4 +156,14 @@ console.log(countLetter('g', ' programming')); // 2
 console.log(countLetter('m', 'programming')); // 2
 console.log(countLetter('r', 'programming')); // 2
 console.log(countLetter('p', 'programming')); // 1
-console.log(countLetter('z', 'programming')); // 0
+console.log(countLetter('z', 'programming')); // 0*/
+
+async function demo() {
+  console.log('start');
+
+  await new delayMessage((resolve) => setTimeout(resolve, 2000));
+  console.log('end');
+
+  demo();
+  console.log('Этот код выполниться ранье, чем end');
+}

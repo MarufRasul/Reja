@@ -33,12 +33,14 @@ app.get('/author', (req, res) => {
 
 app.get('/', (req, res) => {
   console.log('Rendering harid page');
-  res.render('harid');
+  res.render('reja');
 });
 
 // Запуск сервера
 const server = http.createServer(app);
 const PORT = 3000;
 server.listen(PORT, function () {
-  console.log(`The server is running successfully on port: ${PORT}`);
+  console.log(
+    `The server is running successfully on port: ${PORT},http://localhost:${PORT}`
+  );
 });
