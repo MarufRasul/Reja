@@ -173,14 +173,17 @@ function countDigits(str) {
   for (let char of str) {
     if (!isNaN(parseInt(char))) {
       count++;
+
       if (count === 6) {
-        console.log('Кириб килаётган рамазон ойи муборак булсин, Устоз!');
+        console.log(
+          ' Ассалому алейкум.Кириб килаётган рамазон ойи муборак булсин, Устоз!'
+        );
       }
     }
   }
   return count;
 }
 
-console.log(countDigits('Salom 123')); // 3
+console.log(countDigits('Салом 123')); // 3
 console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 8
 console.log(countDigits('Хеч кандай ракам юк')); // 0
