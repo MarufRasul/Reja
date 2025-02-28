@@ -185,5 +185,5 @@ function countDigits(str) {
 }
 
 console.log(countDigits('Салом 123')); // 3
-console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 8
+console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 6
 console.log(countDigits('Хеч кандай ракам юк')); // 0
