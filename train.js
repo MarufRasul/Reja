@@ -158,7 +158,7 @@ console.log(countLetter('r', 'programming')); // 2
 console.log(countLetter('p', 'programming')); // 1
 console.log(countLetter('z', 'programming')); // 0*/
 
-async function demo() {
+/*async function demo() {
   console.log('start');
 
   await new delayMessage((resolve) => setTimeout(resolve, 2000));
@@ -166,4 +166,21 @@ async function demo() {
 
   demo();
   console.log('Этот код выполниться ранье, чем end');
+}*/
+//Task-B
+function countDigits(str) {
+  let count = 0;
+  for (let char of str) {
+    if (!isNaN(parseInt(char))) {
+      count++;
+      if (count === 6) {
+        console.log('Кириб килаётган рамазон ойи муборак булсин, Устоз!');
+      }
+    }
+  }
+  return count;
 }
+
+console.log(countDigits('Salom 123')); // 3
+console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 8
+console.log(countDigits('Хеч кандай ракам юк')); // 0
