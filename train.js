@@ -168,7 +168,7 @@ console.log(countLetter('z', 'programming')); // 0*/
   console.log('Этот код выполниться ранье, чем end');
 }*/
 //Task-B
-function countDigits(str) {
+/*function countDigits(str) {
   let count = 0;
   for (let char of str) {
     if (!isNaN(parseInt(char))) {
@@ -186,4 +186,50 @@ function countDigits(str) {
 
 console.log(countDigits('Салом 123')); // 3
 console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 6
-console.log(countDigits('Хеч кандай ракам юк')); // 0
+console.log(countDigits('Хеч кандай ракам юк')); // 0*/
+
+class Shop {
+  constructor(Finik, Lagmon, Zamzam_suv) {
+    this.Finik = Finik;
+    this.Lagmon = Lagmon;
+    this.Zamzam_suv = Zamzam_suv;
+  }
+
+  qoldiq() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    console.log(
+      `Hozir ${hours}:${minutes}da ${this.Finik}ta Finik
+      , ` + `${this.Lagmon}ta Lagmon va ${this.Zamzam_suv}ta Zamzam_suv mavjud!`
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    if (this[mahsulot] !== undefined) {
+      if (this[mahsulot] >= miqdor) {
+        this[mahsulot] -= miqdor;
+        console.log(`${miqdor}ta ${mahsulot} sotildi.`);
+      } else {
+        console.log(`${mahsulot} dan yetarli miqdor mavjud emas!`);
+      }
+    } else {
+      console.log(`Noto'g'ri mahsulot nomi: ${mahsulot}`);
+    }
+  }
+
+  qabul(mahsulot, miqdor) {
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] += miqdor;
+      console.log(`${miqdor}ta ${mahsulot} qabul qilindi.`);
+    } else {
+      console.log(`Noto'g'ri mahsulot nomi: ${mahsulot}`);
+    }
+  }
+}
+
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish('Finik', 3);
+shop.qabul('Zamzam_suv', 4);
+shop.qoldiq();
