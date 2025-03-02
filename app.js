@@ -1,30 +1,38 @@
 console.log('Web Serverni boshlash');
 const express = require('express');
-const res = require('express/lib/response');
 const app = express();
 
-//MongoDB connect
 const db = require('./server').db();
 
-// Подключаем статику (CSS, изображения и т. д.)
 app.use(express.static('public'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Устанавливаем движок шаблонов EJS
 app.set('views', 'views');
 app.set('view engine', 'ejs');
 
 app.post('/create-item', (req, res) => {
-  console.log('user entered/create-item');
-  const new_reja = req.body.reja;
-  db.collection('plans').insertOne({ reja: new_reja }, (err, data) => {
+  console.log('user entered /create-item');
+  const newReja = req.body.reja;
+
+  db.collection('plans').insertOne({ reja: newReja }, (err, result) => {
     if (err) {
-      console.log(err);
-      res.end('something went wrong');
-    } else {
-      res.json({ message: 'Successfully added' });
+      console.error(err);
+      return res.status(500).send('Something went wrong while inserting data.');
     }
+
+    if (result.ops) {
+      console.log(result.ops);
+      return res.json(result.ops[0]);
+    }
+
+    const insertedDoc = {
+      _id: result.insertedId,
+      reja: newReja,
+    };
+    console.log(insertedDoc);
+    return res.json(insertedDoc);
   });
 });
 
@@ -34,12 +42,15 @@ app.get('/', (req, res) => {
     .find()
     .toArray((err, data) => {
       if (err) {
-        console.log(err);
-        res.end('something went wrong');
-      } else {
-        console.log(data);
-        res.render('reja', { items: data });
+        console.error(err);
+        return res
+          .status(500)
+          .send('Something went wrong while fetching data.');
       }
+      console.log(data);
+
+      res.render('reja', { items: data });
     });
 });
+
 module.exports = app;

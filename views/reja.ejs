@@ -10,7 +10,6 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body style="background-color: #b8bbd1">
     <div class="container">
@@ -50,18 +49,20 @@
             </button>
             <button
               data-id="<%=item._id%>"
-              class="delete-me btn btn-danger bt-sm"
+              class="delete-me btn btn-danger btn-sm"
             >
               Ochirish
             </button>
           </div>
         </li>
+        <% }); %>
       </ul>
-      <% }); %>
 
       <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
         Hamma Rejalarni o'chirish
       </button>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/author/Browser.js"></script>
   </body>
 </html>
