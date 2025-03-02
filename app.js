@@ -1,5 +1,6 @@
 console.log('Web Serverni boshlash');
 const express = require('express');
+const mongodb = require('mongodb');
 const app = express();
 
 const db = require('./server').db();
@@ -23,7 +24,7 @@ app.post('/create-item', (req, res) => {
     }
 
     if (result.ops) {
-      console.log(result.ops);
+      console.log('Inserted doc:', result.ops[0]);
       return res.json(result.ops[0]);
     }
 
@@ -31,9 +32,26 @@ app.post('/create-item', (req, res) => {
       _id: result.insertedId,
       reja: newReja,
     };
-    console.log(insertedDoc);
+    console.log('Inserted doc:', insertedDoc);
     return res.json(insertedDoc);
   });
+});
+
+app.post('/delete-item', (req, res) => {
+  const id = req.body.id;
+  console.log('Deleting item with id:', id);
+
+  db.collection('plans').deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Error while deleting');
+      }
+      console.log('Document deleted count:', data.deletedCount);
+      res.json({ state: 'success' });
+    }
+  );
 });
 
 app.get('/', (req, res) => {
@@ -47,7 +65,7 @@ app.get('/', (req, res) => {
           .status(500)
           .send('Something went wrong while fetching data.');
       }
-      console.log(data);
+      console.log('Data from DB:', data);
 
       res.render('reja', { items: data });
     });
