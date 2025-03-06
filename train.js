@@ -188,7 +188,7 @@ console.log(countDigits('Салом 123')); // 3
 console.log(countDigits('Бугун 28-февраль, 2025-йил!!')); // 6
 console.log(countDigits('Хеч кандай ракам юк')); // 0*/
 
-class Shop {
+/*class Shop {
   constructor(Finik, Lagmon, Zamzam_suv) {
     this.Finik = Finik;
     this.Lagmon = Lagmon;
@@ -232,4 +232,16 @@ const shop = new Shop(4, 5, 2);
 shop.qoldiq();
 shop.sotish('Finik', 3);
 shop.qabul('Zamzam_suv', 4);
-shop.qoldiq();
+shop.qoldiq();*/
+
+function areEquivalent(stringA, stringB) {
+  if (stringA.length !== stringB.length) {
+    return false;
+  }
+
+  const sortedStringA = stringA.split('').sort().join('');
+  const sortedStringB = stringB.split('').sort().join('');
+  return sortedStringA === sortedStringB;
+}
+console.log(areEquivalent('mitgroup', 'gmtiprou')); // true
+console.log(areEquivalent('hello', 'world')); // false
