@@ -234,7 +234,7 @@ shop.sotish('Finik', 3);
 shop.qabul('Zamzam_suv', 4);
 shop.qoldiq();*/
 
-function areEquivalent(stringA, stringB) {
+/*function areEquivalent(stringA, stringB) {
   if (stringA.length !== stringB.length) {
     return false;
   }
@@ -244,4 +244,12 @@ function areEquivalent(stringA, stringB) {
   return sortedStringA === sortedStringB;
 }
 console.log(areEquivalent('mitgroup', 'gmtiprou')); // true
-console.log(areEquivalent('hello', 'world')); // false
+console.log(areEquivalent('hello', 'world')); // false*/
+//E-TASK:
+function getReverse(str) {
+  return str.split('').reverse().join('');
+}
+
+console.log(getReverse('hello')); // olleh
+console.log(getReverse('world')); // dlrow
+console.log(getReverse('JavaScript')); // tpircSavaJ
