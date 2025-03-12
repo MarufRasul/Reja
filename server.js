@@ -12,12 +12,13 @@ MongoClient.connect(connectionString, {
     console.log('MongoDB connection succeeded');
     module.exports = client;
 
-    // Импортируем app после успешного подключения
+    const http = require('http');
     const app = require('./app');
 
     const server = http.createServer(app);
     const PORT = 5006;
-    server.listen(PORT, () => {
+
+    server.listen(PORT, '0.0.0.0', () => {
       console.log(
         `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
       );

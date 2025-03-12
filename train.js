@@ -246,10 +246,46 @@ shop.qoldiq();*/
 console.log(areEquivalent('mitgroup', 'gmtiprou')); // true
 console.log(areEquivalent('hello', 'world')); // false*/
 //E-TASK:
-function getReverse(str) {
+/*function getReverse(str) {
   return str.split('').reverse().join('');
 }
 
 console.log(getReverse('hello')); // olleh
 console.log(getReverse('world')); // dlrow
-console.log(getReverse('JavaScript')); // tpircSavaJ
+console.log(getReverse('JavaScript')); // tpircSavaJ*/
+TASK - F;
+function findDoublers(text) {
+  let letters = new Set();
+  for (let letter of text) {
+    if (letters.has(letter)) {
+      return true;
+    }
+    letters.add(letter);
+  }
+  return false;
+}
+
+console.log(findDoublers('hello')); // true
+console.log(findDoublers('world')); // false
+console.log(findDoublers('apple')); // true
+console.log(findDoublers('unique')); // true
+
+TASK - G;
+function getHighestIndex(arr) {
+  let max = arr[0];
+  let index = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+      index = i;
+    }
+  }
+
+  return index;
+}
+
+console.log(getHighestIndex([5, 21, 12, 21, 8])); // 1
+console.log(getHighestIndex([10, 50, 30, 50, 40])); // 1
+console.log(getHighestIndex([3, 7, 7, 2, 7])); // 1
+console.log(getHighestIndex([100, 200, 300, 400])); // 3
